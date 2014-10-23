@@ -1,0 +1,619 @@
+http: //data.tmsapi.com/v1/movies/showings?startDate=2014-10-23&zip=77009&api_key=q7d6xxwe8h85b6z7gu3xsdjf
+
+    [{
+        "tmsId": "MV005522000000",
+        "rootId": "10569751",
+        "title": "Dracula Untold",
+        "titleLang": "en",
+        "shortDescription": "Prince Vlad III trades his humanity for the power to defend his people from the Ottoman onslaught.",
+        "longDescription": "In 15th-century Transylvania, Vlad III (Luke Evans), prince of Wallachia, is known as a just ruler. With his beloved wife, Mirena (Sarah Gadon), Vlad has brokered a prolonged period of peace and ensured that his people are protected, especially from the Ottoman Empire. However, when Sultan Mehmed II (Dominic Cooper) demands 1,000 of the country's boys, including Vlad's son, for his army, Vlad makes a deal with a monster that will enable him to defeat the Turks -- but cost him his humanity.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "PG-13"
+        }],
+        "genres": ["Adventure", "Horror", "Action"],
+        "topCast": ["Luke Evans", "Sarah Gadon", "Dominic Cooper"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10569751/p10569751_p_v5_aa.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "Dracula Untold (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "2"
+        },
+        "officialUrl": "http://www.draculauntold.com/",
+        "runTime": "PT01H32M",
+        "releaseDate": "2014-10-10",
+        "showtimes": [{
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T14:45"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T17:30"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:30"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV005696210000",
+        "rootId": "10731391",
+        "title": "Fury",
+        "titleLang": "en",
+        "shortDescription": "A tank commander takes his men on a deadly mission to strike at the heart of Nazi Germany.",
+        "longDescription": "In April 1945, the Allies are making their final push in the European theater. A battle-hardened Army sergeant named Don \"Wardaddy\" Collier (Brad Pitt), leading a Sherman tank and a five-man crew, undertakes a deadly mission behind enemy lines. Hopelessly outnumbered, outgunned and saddled with an inexperienced soldier (Logan Lerman) in their midst, Wardaddy and his men face overwhelming odds as they move to strike at the heart of Nazi Germany.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Action", "War", "Historical drama"],
+        "topCast": ["Brad Pitt", "Shia LaBeouf", "Logan Lerman"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10731391/p10731391_p_v5_ab.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "Fury (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "3"
+        },
+        "runTime": "PT02H14M",
+        "releaseDate": "2014-10-17",
+        "showtimes": [{
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T13:30"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T16:20"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:15"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV005506520000",
+        "rootId": "10556843",
+        "title": "Gone Girl",
+        "titleLang": "en",
+        "shortDescription": "The husband (Ben Affleck) of a missing woman becomes the chief suspect in her disappearance.",
+        "longDescription": "In Carthage, Mo., former New York-based writer Nick Dunne (Ben Affleck) and his glamorous wife Amy (Rosamund Pike) present a portrait of a blissful marriage to the public. However, when Amy goes missing on the couple's fifth wedding anniversary, Nick becomes the prime suspect in her disappearance. The resulting police pressure and media frenzy cause the Dunnes' image of a happy union to crumble, leading to tantalizing questions about who Nick and Amy truly are.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Mystery", "Crime drama", "Thriller"],
+        "topCast": ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10556843/p10556843_p_v5_ab.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "Gone Girl (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "3.5"
+        },
+        "officialUrl": "http://www.gonegirlmovie.com/",
+        "runTime": "PT02H29M",
+        "releaseDate": "2014-10-03",
+        "showtimes": [{
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T13:30"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T14:00"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T16:30"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T17:00"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:30"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV005562540000",
+        "rootId": "10620390",
+        "title": "Kill the Messenger",
+        "titleLang": "en",
+        "shortDescription": "Reporter Gary Webb becomes the target of a smear campaign after he exposes CIA crimes in the U.S.",
+        "longDescription": "Journalist Gary Webb (Jeremy Renner) happens upon a story that not only leads to the origins of America's crack epidemic but also alleges that the CIA was well-aware of the dealers who were smuggling cocaine into the U.S. and using the profits to arm Nicaraguan rebels. Despite warnings to halt his investigation, Webb keeps digging and uncovers a conspiracy with explosive implications. As a result of his findings, Webb's career, family and life come under threat.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Docudrama", "Thriller"],
+        "topCast": ["Jeremy Renner", "Rosemarie DeWitt", "Ray Liotta"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10620390/p10620390_p_v5_aa.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "Kill the Messenger (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "3"
+        },
+        "officialUrl": "http://www.focusfeatures.com/kill_the_messenger/",
+        "runTime": "PT01H52M",
+        "releaseDate": "2014-10-10",
+        "showtimes": [{
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T14:15"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T17:15"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:45"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV006008640000",
+        "rootId": "10909401",
+        "title": "Pride",
+        "titleLang": "en",
+        "shortDescription": "Gays and lesbians from London lend their support to striking coal miners in 1984 Wales.",
+        "longDescription": "Realizing that they share common foes in Margaret Thatcher, the police and the conservative press, London-based gays and lesbians lend their support to striking coal miners in 1984 Wales.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Comedy drama", "Docudrama"],
+        "topCast": ["Bill Nighy", "Imelda Staunton", "Dominic West"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10909401/p10909401_p_v5_aa.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "Pride (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "3"
+        },
+        "officialUrl": "http://www.cbsfilms.com/pride/",
+        "runTime": "PT01H59M",
+        "releaseDate": "2014-09-26",
+        "showtimes": [{
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": true,
+            "dateTime": "2014-10-23T14:00",
+            "quals": "Up Stairs|Closed Captioned"
+        }, {
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": true,
+            "dateTime": "2014-10-23T16:30",
+            "quals": "Up Stairs|Closed Captioned"
+        }, {
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:00",
+            "quals": "Up Stairs|Closed Captioned"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV005520930000",
+        "rootId": "10568962",
+        "title": "Rudderless",
+        "titleLang": "en",
+        "shortDescription": "A grieving father finds his now-dead son's demo tapes and forms a band in hope of finding peace.",
+        "longDescription": "After a grieving father finds a box of demo tapes made by his now-dead son, he forms a band in hope of finding some peace.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Drama"],
+        "topCast": ["Billy Crudup", "Anton Yelchin", "Felicity Huffman"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10568962/p10568962_p_v5_aa.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "Rudderless (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "2.5"
+        },
+        "runTime": "PT01H45M",
+        "releaseDate": "2014-10-17",
+        "showtimes": [{
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T14:15"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T16:45"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T20:00"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV006119750000",
+        "rootId": "10981466",
+        "title": "The Blue Room",
+        "titleLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Mystery", "Thriller"],
+        "topCast": ["Mathieu Amalric", "Stephanie Cleau", "Léa Drucker"],
+        "preferredImage": {
+            "uri": "iconic/v5/AllPhotos/10981466/p10981466_i_v5_aa.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Iconic",
+            "caption": {
+                "content": "La chambre bleue (2014)",
+                "lang": "fr-CA"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "3"
+        },
+        "runTime": "PT01H15M",
+        "showtimes": [{
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": true,
+            "dateTime": "2014-10-23T14:25",
+            "quals": "Closed Captioned"
+        }, {
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": true,
+            "dateTime": "2014-10-23T17:00",
+            "quals": "Closed Captioned"
+        }, {
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:25",
+            "quals": "Closed Captioned"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV005521550000",
+        "rootId": "10569417",
+        "title": "The Judge",
+        "titleLang": "en",
+        "shortDescription": "A slick lawyer (Robert Downey Jr.) defends his father who is charged with a hit-and-run death.",
+        "longDescription": "Hank Palmer (Robert Downey Jr.), a brilliant but shady attorney, returns to his Indiana hometown after learning that his mother has passed away. His arrival triggers renewed tension between himself and his father, Judge Joseph Palmer (Robert Duvall), who makes no secret of his disapproval of Hank's morally ambiguous career. As the lawyer prepares to depart, his father is arrested for a hit-and-run death. Hank takes on his father's defense, despite the objections of the resentful old man.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Drama"],
+        "topCast": ["Robert Downey Jr.", "Robert Duvall", "Vera Farmiga"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10569417/p10569417_p_v5_ab.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "The Judge (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "2.5"
+        },
+        "officialUrl": "http://www.thejudgemovie.com/",
+        "runTime": "PT02H21M",
+        "releaseDate": "2014-10-10",
+        "showtimes": [{
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T14:00"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T17:00"
+        }, {
+            "theatre": {
+                "id": "10508",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "Sundance Cinemas Houston"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T20:00"
+        }],
+        "entityType": "Movie"
+    }, {
+        "tmsId": "MV005501220000",
+        "rootId": "10553070",
+        "title": "The Skeleton Twins",
+        "titleLang": "en",
+        "shortDescription": "A set of near-tragedies forces estranged twins to come to terms with their lives and relationships.",
+        "longDescription": "Following many years of estrangement, twins Milo (Bill Hader) and Maggie (Kristen Wiig) have an unexpected reunion after a set of near-tragedies. The situation forces them to confront how their lives became so broken. For Maggie, it means examining why she's so unhappy in a marriage to a loving husband. For Milo, it means meeting with his first love to see if their romance can reignite. Eventually, they learn that living truthfully and accepting each other is the only way to move forward.",
+        "descriptionLang": "en",
+        "subType": "Feature Film",
+        "ratings": [{
+            "body": "Motion Picture Association of America",
+            "code": "R"
+        }],
+        "genres": ["Comedy drama"],
+        "topCast": ["Bill Hader", "Kristen Wiig", "Luke Wilson"],
+        "preferredImage": {
+            "uri": "movieposters/v5/AllPhotos/10553070/p10553070_p_v5_aa.jpg",
+            "height": "360",
+            "width": "240",
+            "primary": "true",
+            "category": "Poster Art",
+            "caption": {
+                "content": "The Skeleton Twins (2014)",
+                "lang": "en"
+            }
+        },
+        "releaseYear": 2014,
+        "qualityRating": {
+            "ratingsBody": "TMS",
+            "value": "3"
+        },
+        "officialUrl": "http://skeletontwinsmovie.com/",
+        "runTime": "PT01H31M",
+        "releaseDate": "2014-09-19",
+        "showtimes": [{
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": true,
+            "dateTime": "2014-10-23T14:15",
+            "quals": "Up Stairs|Descriptive Video Services|Closed Captioned"
+        }, {
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": true,
+            "dateTime": "2014-10-23T16:45",
+            "quals": "Up Stairs|Descriptive Video Services|Closed Captioned"
+        }, {
+            "theatre": {
+                "id": "8553",
+                "address": {
+                    "country": "USA"
+                },
+                "name": "River Oaks Theatre"
+            },
+            "barg": false,
+            "dateTime": "2014-10-23T19:15",
+            "quals": "Up Stairs|Descriptive Video Services|Closed Captioned"
+        }],
+        "entityType": "Movie"
+    }]
