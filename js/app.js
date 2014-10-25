@@ -13,9 +13,6 @@ function app(){
         _.templateSettings.interpolate = /{([\s\S]+?)}/g;
 
 
-        Function test
-
-
         // start app?
     })
 

@@ -1,0 +1,29 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+.grid {
+	display: block;
+	font-size: 0;
+	text-align: justify;
+	margin: 0 auto;
+}
+.grid:after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
+.grid > * {
+	display: inline-block;
+	width: 100%;
+	font-size: medium;
+	vertical-align: top;
+	text-align: left;
+}
+
+@media (min-width: 800px){
+	.grid-3-800 > * { width: 30%; }
+}
+
+img {
+	max-width: 100%;
