@@ -7,7 +7,6 @@ function app() {   //It loads rest of JS file 
     // load some scripts (uses promises :D)
 
 //http://api.yummly.com/v1/api/recipes?_app_id=ba255115&_app_key=9bf81599ca8a0f15d0f4674ef24342c4&onion+soup&requirePictures=true
-    // debugger;
     loader.load({
         url: "./bower_components/jquery/dist/jquery.min.js"
     }, {
@@ -44,12 +43,37 @@ function YummlyStore(sets) { //constructor function that tests if e give it a AP
     this.init();       //constructor function that tests if e give it a API key
 }
 
+
+// http://api.yummly.com/v1/api/metadata/holiday?_app_id=ba255115&_app_key=9bf81599ca8a0f15d0f4674ef24342c4
+
+
+YummlyStore.prototype.pullSeasons = function() {
+        window.set_metadata = function(){
+        console.log(arguments);
+        }
+        $.get("http://api.yummly.com/v1/api/metadata/holiday.js?_app_id=ba255115&_app_key=9bf81599ca8a0f15d0f4674ef24342c4&callback=set_metadata")
+        .then(function(data) {
+        });
+        var value = search   
+}
+
+function randomSeasons(){
+var myrandom = Math.round(Math.random()*3)
+var seasons = new Array()
+seasons[0]="http://www.yummly.com"
+seasons[1]="http://www.bandsintown.com"
+seasons[2]="http://developer.tmsapi.com/"
+
+// window.location=links[myrandom]
+
+}
+
 YummlyStore.prototype.pullAllActiveListings = function() {
     return $.getJSON(
             this.complete_api_url + "api/recipes?_app_id=" + this.app_id + "&_app_key=" + this.api_key + "&requirePictures=true"
         )
         .then(function(data) {
-            console.log(data)
+            console.log(data);
             //console.log(data.images[0].hostedLargeUrl);
             return data;
         });
@@ -108,6 +132,7 @@ YummlyStore.prototype.init = function() {
 
 
     $.when(                         //(the "listing" or "single-page-listing" we are involinkg the data)
+        this.pullSeasons(),
         this.pullAllActiveListings(), //this returns a promise.  getting results and storing property on the instance.  (into self. )
         this.loadTemplate("yumlisting"),
         this.loadTemplate("yum-single-page-listing")
