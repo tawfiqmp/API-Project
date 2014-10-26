@@ -46,3 +46,13 @@ How to Link all of those JS files
 OnConnect API: q7d6xxwe8h85b6z7gu3xsdjf
 
 
+
+RECIPES keys to include:
+
+Name
+Ingredients
+Nutrition
+Directions(time)
+
+
+

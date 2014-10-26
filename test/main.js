@@ -12,6 +12,12 @@ var expect = chai.expect;
 //--- your setup code goes here (i.e. create test instances of your Constructors)
 //--- your setup code goes here
 
+
+var test;
+
+
+
+
 //--- your tests go here
 // an example test suite
 describe("Array", function(){
