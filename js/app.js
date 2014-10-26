@@ -13,7 +13,10 @@ function app(){
         _.templateSettings.interpolate = /{([\s\S]+?)}/g;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31739340ca396ff7d9d5e46b85ab101eb12f4051
         // start app?
     })
 

@@ -55,7 +55,8 @@ span h1 {
     -moz-border-radius: 100px;
     -webkit-border-radius: 100px;
     -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
     -moz-transform: rotate(30deg);
 }
 .cloud:after {
@@ -77,8 +78,8 @@ span h1 {
 .x2 {
     left: 200px;
     -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    transform: scale(0.6);
+    -ms-transform: scale(0.6);
+        transform: scale(0.6);
     opacity: 0.6;
     -webkit-animation: moveclouds 120s linear infinite;
     -moz-animation: moveclouds 120s linear infinite;
@@ -88,8 +89,8 @@ span h1 {
     left: -250px;
     top: -200px;
     -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
+    -ms-transform: scale(0.8);
+        transform: scale(0.8);
     opacity: 0.8;
     /*opacity proportional to the size*/
     
@@ -101,8 +102,8 @@ span h1 {
     left: 470px;
     top: -250px;
     -webkit-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    transform: scale(0.75);
+    -ms-transform: scale(0.75);
+        transform: scale(0.75);
     opacity: 0.75;
     /*opacity proportional to the size*/
     
@@ -114,8 +115,8 @@ span h1 {
     left: -150px;
     top: -150px;
     -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
+    -ms-transform: scale(0.8);
+        transform: scale(0.8);
     opacity: 0.8;
     /*opacity proportional to the size*/
     
@@ -124,22 +125,6 @@ span h1 {
     -o-animation: moveclouds 110s linear infinite;
 }
 @-webkit-keyframes moveclouds {
-    0% {
-        margin-left: 1000px;
-    }
-    100% {
-        margin-left: -1000px;
-    }
-}
-@-moz-keyframes moveclouds {
-    0% {
-        margin-left: 1000px;
-    }
-    100% {
-        margin-left: -1000px;
-    }
-}
-@-o-keyframes moveclouds {
     0% {
         margin-left: 1000px;
     }
@@ -184,66 +169,6 @@ span h1 {
         bottom: 0px;
     }
 }
-@-moz-keyframes sky {
-    0% {
-        background: #416f8f;
-    }
-    25% {
-        background: #7596ae;
-    }
-    50% {
-        background: #a1c3db;
-    }
-    100% {
-        background: black;
-    }
-}
-@-moz-keyframes rise {
-    0% {
-        background: #ffc03a;
-    }
-    25% {
-        background: #ff893a;
-        left: 500px;
-        top: 200px;
-        bottom: 200px;
-    }
-    50% {
-        background: #ff893a;
-        left: 1000px;
-        top: 80px;
-        bottom: 100px;
-    }
-    100% {
-        background: #ffffff;
-        left: 1500px;
-        top: 500px;
-        bottom: 0px;
-    }
-}
-@-moz-keyframes moonr {
-    0% {
-        background: white;
-    }
-    25% {
-        background: white;
-        left: 500px;
-        top: 200px;
-        bottom: 200px;
-    }
-    50% {
-        background: white;
-        left: 1000px;
-        top: 80px;
-        bottom: 100px;
-    }
-    100% {
-        background: white;
-        left: 1500px;
-        top: 500px;
-        bottom: 0px;
-    }
-}
 
 /*Sun and changing color background*/
 #background {
@@ -267,33 +192,6 @@ span h1 {
     -animation: rise 120s infinite linear;
     -moz-animation: rise 120s infinite linear;
     -webkit-animation: rise 120s infinite linear;
-}
-@-moz-keyframes moonr {
-    0% {
-        background: white;
-        opacity: 0%;
-    }
-    25% {
-        background: white;
-        opacity: 25%;
-        left: 500px;
-        top: 200px;
-        bottom: 200px;
-    }
-    50% {
-        background: white;
-        opacity: 50%;
-        left: 1000px;
-        top: 80px;
-        bottom: 100px;
-    }
-    100% {
-        background: white;
-        opacity: 75%;
-        left: 1500px;
-        top: 500px;
-        bottom: 0px;
-    }
 }
 #moon {
     width: 80px;
@@ -346,7 +244,8 @@ div.hill {
     border-radius: 20px 20px 0 0;
     position: relative;
     z-index: 3;
-    transform: rotate (7 deg);
+    -ms-transform: rotate (7 deg);
+        transform: rotate (7 deg);
     -webkit-transform: rotate(7deg)
 }
 .top-antler-left:nth-child(2) {
@@ -360,7 +259,8 @@ div.hill {
     border-radius: 20px 20px 0 0;
     position: relative;
     z-index: 3;
-    transform: rotate (7 deg);
+    -ms-transform: rotate (7 deg);
+        transform: rotate (7 deg);
     -webkit-transform: rotate(7deg)
 }
 .bottom-antler-left {
@@ -376,7 +276,8 @@ div.hill {
     border-left: 4px solid black;
     border-top: 4px solid black;
     background: #97694F;
-    transform: rotate (7deg);
+    -ms-transform: rotate (7deg);
+        transform: rotate (7deg);
     -webkit-transform: rotate(7deg)
 }
 /* RIGHT SIDE ANTLER*/
@@ -659,17 +560,29 @@ div.hill {
 /*EYE BLINKING ANIMATION*/
 
 .pupil {
-animation-name:blink;
-animation-duration:6s;
-animation-timing-function:linear;
-animation-delay:5s;
-animation-iteration-count:infinite;
+-webkit-animation-name:blink;
+        animation-name:blink;
+-webkit-animation-duration:6s;
+        animation-duration:6s;
+-webkit-animation-timing-function:linear;
+        animation-timing-function:linear;
+-webkit-animation-delay:5s;
+        animation-delay:5s;
+-webkit-animation-iteration-count:infinite;
+        animation-iteration-count:infinite;
+}
+@-webkit-keyframes blink {
+0% {-webkit-transform: scale(1,1.6);transform: scale(1,1.6);}
+2% {-webkit-transform: scale(1,0);transform: scale(1,0);}
+4% {-webkit-transform: scale(1,0);transform: scale(1,0);}
+5% {-webkit-transform: scale(1,1.6);transform: scale(1,1.6);}
+100% {-webkit-transform: scale(1,1.6);transform: scale(1,1.6);}
 }
 @keyframes blink {
-0% {transform: scale(1,1.6);}
-2% {transform: scale(1,0);}
-4% {transform: scale(1,0);}
-5% {transform: scale(1,1.6);}
-100% {transform: scale(1,1.6);}
+0% {-webkit-transform: scale(1,1.6);transform: scale(1,1.6);}
+2% {-webkit-transform: scale(1,0);transform: scale(1,0);}
+4% {-webkit-transform: scale(1,0);transform: scale(1,0);}
+5% {-webkit-transform: scale(1,1.6);transform: scale(1,1.6);}
+100% {-webkit-transform: scale(1,1.6);transform: scale(1,1.6);}
 }
 
