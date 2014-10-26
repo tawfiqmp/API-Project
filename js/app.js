@@ -13,7 +13,9 @@ function app(){
         _.templateSettings.interpolate = /{([\s\S]+?)}/g;
 
 
-        // start app?
+        // start app?var bodyEl = $('body')
+
+
     })
 
 }
