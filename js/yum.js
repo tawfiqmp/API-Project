@@ -1,8 +1,8 @@
-window.onload = app;  // does not matter if this is on top or bottom.
+window.onload = yum;  // does not matter if this is on top or bottom.
 
 // runs when the DOM is loaded
 
-function app() {   //It loads rest of JS file  
+function yum() {   //It loads rest of JS file  
 
     // load some scripts (uses promises :D)
 
@@ -62,23 +62,23 @@ YummlyStore.prototype.loadTemplate = function(name) {
 }
 
 YummlyStore.prototype.drawListings = function(templateString, data) {
-    var grid = document.querySelector("#listings");
+    var grid = document.querySelector("#yumlisting");
 
-    var bigHtmlString = data.results.map(function(listing) {
-        return _.template(templateString, listing);
+    var bigHtmlString = data.results.map(function(yumlisting) {
+        return _.template(templateString, yumlisting);
     }).join('');
 
     grid.innerHTML = bigHtmlString;
 }
 
 YummlyStore.prototype.drawSingleListing = function(id) { //filtering all results 
-    var listing = this.latestData.results.filter(function(listing) { // runs it 24 times until it finds the ID.
-        return listing.listing_id === parseInt(id);  //returns the data object not just listing.
+    var listing = this.latestData.results.filter(function(yumlistings) { // runs it 24 times until it finds the ID.
+        return listings.listings_id === parseInt(id);  //returns the data object not just listing.
     });
 
-    var grid = document.querySelector("#listings");
+    var grid = document.querySelector("#yumlistings");
 
-    var bigHtmlString = _.template(this.yumsingleListingHtml, listing[0]);
+    var bigHtmlString = _.template(this.yumsingleListingHtml, yumlisting[0]);
 
     grid.innerHTML = bigHtmlString;
 }
@@ -94,7 +94,7 @@ YummlyStore.prototype.setupRouting = function() {
         alert(this.params.anymessage);
     })
 
-    Path.map("#/listing/:id").to(function() {  //
+    Path.map("#/yumlisting/:id").to(function() {  //
         self.drawSingleListing(this.params.id);
     });
 

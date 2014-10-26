@@ -1,120 +1,78 @@
-window.onload = app;  // does not matter if this is on top or bottom.
+window.onload = movies;  // does not matter if this is on top or bottom.
 
 // runs when the DOM is loaded
 
-function movie() {   //It loads rest of JS file  
+function movie() {  //It loads rest of JS file  
 
-    // load some scripts (uses promises :D)
+           // load some scripts (uses promises :D)
 
-//http: //data.tmsapi.com/v1/movies/showings?startDate=2014-10-24&zip=77009&api_key=q7d6xxwe8h85b6z7gu3xsdjf
-    // debugger;
-    loader.load({
-        url: "./bower_components/jquery/dist/jquery.min.js"
-    }, {
-        url: "./bower_components/lodash/dist/lodash.min.js"
-    }, {
-        url: "./bower_components/pathjs/path.min.js"
-    }).then(function() {
-        _.templateSettings.interpolate = /{([\s\S]+?)}/g;   // template for lodash
+        //http: //data.tmsapi.com/v1/movies/showings?startDate=2014-10-24&zip=77009&api_key=q7d6xxwe8h85b6z7gu3xsdjf
+           // debugger;
+          
+        loader.load({    
+                url: "./bower_components/jquery/dist/jquery.min.js"  
+            }, {    
+                url: "./bower_components/lodash/dist/lodash.min.js"  
+            }, {    
+                url: "./bower_components/pathjs/path.min.js"  
+            }).then(function() {    
+                    _.templateSettings.interpolate = /{([\s\S]+?)}/g;  // template for lodash
 
-        var options = {
-                api_key: "q7d6xxwe8h85b6z7gu3xsdjf",
-            }
-            // start app?
-        var client = new MovieLists(options);  
+                    var apikey = "q7d6xxwe8h85b6z7gu3xsdjf";
+                    var baseUrl = "http://data.tmsapi.com/v1";
 
-    });
+                    var showtimesUrl = baseUrl + '/movies/showings';
 
-}
+                    var zipCode = "77009";
 
-function MovieLists(options) { //constructor function that tests if e give it a API key
-    //if (!options.api_key + options.app_id) {
-    if (!options.api_key) {
-        throw new Error("NO APIKEY!?!?");
-    }
-    this.movies_url = "http: //data.tmsapi.com";
-    this.version = options.api_version || "v1/"; // handle api version... if not given, just use the default "v1"
-    this.api_key = options.api_key;
-    this.complete_api_url = this.movies_url + this.version;
+                    var d = new Date();
 
-    // derp.
-    this.init();       //constructor function that tests if e give it a API key
-}
+                    var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
-MovieLists.prototype.pullAllActiveListings = function() {
-    return $.getJSON(
-            this.complete_api_url + "movies/showings?startDate=2014-10-24&zip=77009" + "&_app_key=" + this.api_key)
-        .then(function(data) {
-            console.log(data);
-            return data;
-        });
-}
+                    $(document).ready(function() {
 
+                        // send off the query
 
+                        $.ajax({
 
-MovieLists.prototype.loadTemplate = function(name) {
-    return $.get("./templates/" + name + ".html").then(function() {
-        return arguments[0];
-    })
-}
+                            url: showtimesUrl,
 
-MovieLists.prototype.drawListings = function(templateString, data) {
-    var grid = document.querySelector("#listings");
+                            data: {
+                                    startDate: today,
 
-    var bigHtmlString = data.results.map(function(listing) {
-        return _.template(templateString, listing);
-    }).join('');
+                                    zip: zipCode,
 
-    grid.innerHTML = bigHtmlString;
-}
+                                    jsonp: "dataHandler",
 
-MovieLists.prototype.drawSingleListing = function(id) { //filtering all results 
-    var listing = this.latestData.results.filter(function(listing) { // runs it 24 times until it finds the ID.
-        return listing.listing_id === parseInt(id);  //returns the data object not just listing.
-    });
+                                    api_key: apikey
 
-    var grid = document.querySelector("#listings");
+                                },
+                              
+                            dataType: "jsonp",
+                               
+                        });
+                        
+                    });
+             
 
-    var bigHtmlString = _.template(this.yumsingleListingHtml, listing[0]);
+                    function dataHandler(data) {
 
-    grid.innerHTML = bigHtmlString;
-}
+                        $(document.body).append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode + ':</p>');
+                    
+                        var movies = data.hits;
+                        
+                        $.each(data, function(index, movie) {
 
-MovieLists.prototype.setupRouting = function() {
-    var self = this;
+                            var movieData = '<div class="tile"><img src="http://developer.tmsimg.com/' + movie.preferredImage.uri + '?api_key=' + apikey + '"><br/>';
 
-    Path.map("#/").to(function() {   // grab the loading listing html and data. Inside this call back function we are not in MovieLists. To access we use instance which is why we use self.
-        self.drawListings(self.yumlistingHtml, self.latestData);
-    });
+                            movieData += movie.title;
 
-    Path.map("#/message/:anymessage").to(function() {
-        alert(this.params.anymessage);
-    })
+                            if (movie.ratings) {
+                                movieData += ' (' + movie.ratings[0].code + ') </div>'
+                            };
 
-    Path.map("#/listing/:id").to(function() {  //
-        self.drawSingleListing(this.params.id);
-    });
+                            $(document.body).append(movieData);
 
-    // set the default hash
-    Path.root("#/");  //if there is no hash on url, it will set the default route to be #/
-}
+                        });
 
-MovieLists.prototype.init = function() {
-    var self = this;   //stores a reference to the instance
-
-
-    $.when(                         //(the "listing" or "single-page-listing" we are involinkg the data)
-        this.pullAllActiveListings(), //this returns a promise.  getting results and storing property on the instance.  (into self. )
-        this.loadTemplate("yumlisting"),
-        this.loadTemplate("yum-single-page-listing")
-    ).then(function(data, html, yumsinglePageHtml) {  //whatever is passed in here is in order from the top.
-
-        //Create three properties on our Etsy instance
-        self.latestData = data;
-        self.yumlistingHtml = html;
-        self.yumsingleListingHtml = yumsinglePageHtml;
-
-
-        Path.listen();
-    })
-}
+                    }
