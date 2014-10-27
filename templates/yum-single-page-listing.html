@@ -1,10 +1,19 @@
 <div>
     <a href="#/">Back.</a>
     <hr>
-    <img src="{imageUrlsBySize}">
+    <img src="{images[0].hostedLargeUrl}">
     <hr>
-    <h6>{recipeName}</h6>
-    <span>{ingredients}</span>
+    <h6>{name}</h6>
+    <hr>
+    <ul>
+    <h4>Ingredients</h4>
+    <li>{ingredientLines[0]}</li>
+    <li>{ingredientLines[1]}</li>
+    <li>{ingredientLines[2]}</li>
+    <li>{ingredientLines[3]}</li>
+    <li>{ingredientLines[4]}</li>
+    <li>{ingredientLines[5]}</li>
+    </ul>
     <hr>
     <p>{totalTimeInSeconds}</p>
 </div>
