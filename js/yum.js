@@ -48,10 +48,17 @@ YummlyStore.prototype.pullAllActiveListings = function() {
             this.complete_api_url + "api/recipes?_app_id=" + this.app_id + "&_app_key=" + this.api_key + "&requirePictures=true"
         )
         .then(function(data) {
-            console.log(data)
+            console.log(data.matches)
             //console.log(data.images[0].hostedLargeUrl);
-            return data;
+            return data.matches;
         });
+}
+
+YummlyStore.prototype.pullSingleListing = function(id) {
+    return $.getJSON(this.complete_api_url + "api/recipe/" + id +"?_app_id=" + this.app_id + "&_app_key=" + this.api_key).then(function(data) {
+console.log(data);        
+return data;
+    });
 }
 
 YummlyStore.prototype.loadTemplate = function(name) {
@@ -80,23 +87,26 @@ YummlyStore.prototype.loadTemplate = function(name) {
 }*/
 
 YummlyStore.prototype.drawListings = function(templateString, data) {
-    var grid = document.querySelector("#listing");
+    var grid = document.querySelector("#yumlistings");
 
-    var bigHtmlString = data.results.map(function(yumlisting) {
-        return _.template(templateString, yumlisting);
+    var bigHtmlString = data.map(function(listing) {
+        return _.template(templateString, listing);
     }).join('');
 
     grid.innerHTML = bigHtmlString;
 }
 
-YummlyStore.prototype.drawSingleListing = function(id) { //filtering all results 
+YummlyStore.prototype.drawSingleListing = function(template, data) {
+    var listing = data;
+ 
+/*YummlyStore.prototype.drawSingleListing = function(id) { //filtering all results 
     var listing = this.latestData.results.filter(function(yumlistings) { // runs it 24 times until it finds the ID.
         return listings.listings_id === parseInt(id);  //returns the data object not just listing.
-    });
+    });*/
 
-    var grid = document.querySelector("#listings");
+    var grid = document.querySelector("#yumlistings");
 
-    var bigHtmlString = _.template(this.template, yumlisting);
+    var bigHtmlString = _.template(template, listing);
 
     grid.innerHTML = bigHtmlString;
 }
@@ -124,7 +134,7 @@ YummlyStore.prototype.setupRouting = function() {
    // Path.map("#/listing/:id").to(function() {  //
   //      self.drawSingleListing(this.params.id);
   //  });
-Path.map("#/listing/:id").to(function() {
+Path.map("#/recipe/:id").to(function() {
         $.when(
             self.loadTemplate("yum-single-page-listing"),
             self.pullSingleListing(this.params.id)
