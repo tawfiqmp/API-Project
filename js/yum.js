@@ -1,8 +1,8 @@
-window.onload = yum;  // does not matter if this is on top or bottom.
+window.onload = app;  // does not matter if this is on top or bottom.
 
 // runs when the DOM is loaded
 
-function yum() {   //It loads rest of JS file  
+function app() {   //It loads rest of JS file  
 
     // load some scripts (uses promises :D)
 
@@ -40,7 +40,7 @@ function YummlyStore(sets) { //constructor function that tests if e give it a AP
     this.complete_api_url = this.yummly_url + this.version;
 
     // derp.
-    this.init();       //constructor function that tests if e give it a API key
+    this.setupRouting();       //constructor function that tests if e give it a API key
 }
 
 YummlyStore.prototype.pullAllActiveListings = function() {
@@ -54,15 +54,33 @@ YummlyStore.prototype.pullAllActiveListings = function() {
         });
 }
 
-
 YummlyStore.prototype.loadTemplate = function(name) {
+    if (!this.templates) {
+        this.templates = {};
+    }
+
+    var self = this;
+
+    if (this.templates[name]) {
+        var promise = $.Deferred();
+        promise.resolve(this.templates[name]);
+        return promise;
+    } else {
+        return $.get('./templates/' + name + '.html').then(function(data) {
+            self.templates[name] = data; // <-- cache it for any subsequent requests to this template
+            return data;
+        });
+    }
+}
+
+/*YummlyStore.prototype.loadTemplate = function(name) {
     return $.get("./templates/" + name + ".html").then(function() {
         return arguments[0];
     })
-}
+}*/
 
 YummlyStore.prototype.drawListings = function(templateString, data) {
-    var grid = document.querySelector("#yumlisting");
+    var grid = document.querySelector("#listing");
 
     var bigHtmlString = data.results.map(function(yumlisting) {
         return _.template(templateString, yumlisting);
@@ -76,9 +94,9 @@ YummlyStore.prototype.drawSingleListing = function(id) { //filtering all results
         return listings.listings_id === parseInt(id);  //returns the data object not just listing.
     });
 
-    var grid = document.querySelector("#yumlistings");
+    var grid = document.querySelector("#listings");
 
-    var bigHtmlString = _.template(this.yumsingleListingHtml, yumlisting[0]);
+    var bigHtmlString = _.template(this.template, yumlisting);
 
     grid.innerHTML = bigHtmlString;
 }
@@ -86,27 +104,43 @@ YummlyStore.prototype.drawSingleListing = function(id) { //filtering all results
 YummlyStore.prototype.setupRouting = function() {
     var self = this;
 
-    Path.map("#/").to(function() {   // grab the loading listing html and data. Inside this call back function we are not in YummlyStore. To access we use instance which is why we use self.
-        self.drawListings(self.yumlistingHtml, self.latestData);
-    });
+    Path.map("#/").to(function() { 
+		$.when(
+			self.loadTemplate("yumlisting"),
+            self.pullAllActiveListings()
+        ).then(function() {
+            self.drawListings(arguments[0], arguments[1]);
+
+            console.dir(self)
+        })
+    });  // grab the loading listing html and data. Inside this call back function we are not in YummlyStore. To access we use instance which is why we use self.
+       // self.drawListings(self.yumlistingHtml, self.latestData);
+  //  });
 
     Path.map("#/message/:anymessage").to(function() {
         alert(this.params.anymessage);
     })
 
-    Path.map("#/yumlisting/:id").to(function() {  //
-        self.drawSingleListing(this.params.id);
-    });
-
+   // Path.map("#/listing/:id").to(function() {  //
+  //      self.drawSingleListing(this.params.id);
+  //  });
+Path.map("#/listing/:id").to(function() {
+        $.when(
+            self.loadTemplate("yum-single-page-listing"),
+            self.pullSingleListing(this.params.id)
+        ).then(function() {
+            self.drawSingleListing(arguments[0], arguments[1]);
+        })
+    });
     // set the default hash
     Path.root("#/");  //if there is no hash on url, it will set the default route to be #/
-}
+/*}
 
-YummlyStore.prototype.init = function() {
+ YummlyStore.prototype.init = function() {
     var self = this;   //stores a reference to the instance
 
 
-    $.when(                         //(the "listing" or "single-page-listing" we are involinkg the data)
+   $.when(                         //(the "listing" or "single-page-listing" we are involinkg the data)
         this.pullAllActiveListings(), //this returns a promise.  getting results and storing property on the instance.  (into self. )
         this.loadTemplate("yumlisting"),
         this.loadTemplate("yum-single-page-listing")
@@ -115,9 +149,9 @@ YummlyStore.prototype.init = function() {
         //Create three properties on our Etsy instance
         self.latestData = data;
         self.yumlistingHtml = html;
-        self.yumsingleListingHtml = yumsinglePageHtml;
+        self.yumsingleListingHtml = yumsinglePageHtml; */
 
 
         Path.listen();
-    })
+   // })
 }
