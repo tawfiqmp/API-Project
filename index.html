@@ -32,20 +32,17 @@
 
  <script type="text/javascript">
 function randomlinks(){
-var myrandom=Math.round(Math.random()*4)
+var myrandom=Math.round(Math.random()*3)
 var links=new Array()
-links[0]="http://www.yummly.com"
-links[1]="yum-index.html"
-links[2]="movies-index.html"
-links[3]="band-index.html"
+links[0]="yum-index.html"
+links[1]="movies-index.html"
+links[2]="band-index.html"
 
 
 window.location=links[myrandom]
 }
 </script>
-<form>
-<input type="button" value="What to do today!" onClick="randomlinks()"><a href="yum-index.html"></a>
-</form>
+
 
       <!-- MOOSE SET-UP-->
 
@@ -71,6 +68,8 @@ window.location=links[myrandom]
       <div class='eye'>
         <div class='pupil'></div>
       </div>
+      <form>
+
       <div class='eye'>
          <div class="antlers-left">
   	<div class="top-antler-left"></div>
@@ -86,6 +85,8 @@ window.location=links[myrandom]
   </div>
   <div class="ear-right"></div>
   <div class="ear-left"></div>
+  <input type="button" value="What to do today?" onClick="randomlinks()">
+</form>
         <div class='pupil'></div>
 
       </div>

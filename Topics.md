@@ -42,4 +42,10 @@ YouTube Movie Trailers. Get YouTube API
 Iframes To Pull from Youtube
 How to Link all of those JS files
 
+THINGS TO DO  10/28/14
 
+1. Add Geolocation  (add throw error messages)
+2. Add Fullscreen	(add throw error messages)
+3. Complete Tests
+4. Add "use strict"
+5. Add more styling

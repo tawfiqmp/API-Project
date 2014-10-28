@@ -48,7 +48,7 @@ YummlyStore.prototype.pullAllActiveListings = function() {
             this.complete_api_url + "api/recipes?_app_id=" + this.app_id + "&_app_key=" + this.api_key + "&requirePictures=true"
         )
         .then(function(data) {
-            console.log(data.matches)
+            console.log(data.matches)
             //console.log(data.images[0].hostedLargeUrl);
             return data.matches;
         });
@@ -62,29 +62,23 @@ return data;
 }
 
 YummlyStore.prototype.loadTemplate = function(name) {
-    if (!this.templates) {
-        this.templates = {};
-    }
+    if (!this.templates) {
+        this.templates = {};
+    }
 
-    var self = this;
+    var self = this;
 
-    if (this.templates[name]) {
-        var promise = $.Deferred();
-        promise.resolve(this.templates[name]);
-        return promise;
-    } else {
-        return $.get('./templates/' + name + '.html').then(function(data) {
-            self.templates[name] = data; // <-- cache it for any subsequent requests to this template
-            return data;
-        });
-    }
+    if (this.templates[name]) {
+        var promise = $.Deferred();
+        promise.resolve(this.templates[name]);
+        return promise;
+    } else {
+        return $.get('./templates/' + name + '.html').then(function(data) {
+            self.templates[name] = data; // <-- cache it for any subsequent requests to this template
+            return data;
+        });
+    }
 }
-
-/*YummlyStore.prototype.loadTemplate = function(name) {
-    return $.get("./templates/" + name + ".html").then(function() {
-        return arguments[0];
-    })
-}*/
 
 YummlyStore.prototype.drawListings = function(templateString, data) {
     var grid = document.querySelector("#yumlistings");
@@ -98,11 +92,6 @@ YummlyStore.prototype.drawListings = function(templateString, data) {
 
 YummlyStore.prototype.drawSingleListing = function(template, data) {
     var listing = data;
- 
-/*YummlyStore.prototype.drawSingleListing = function(id) { //filtering all results 
-    var listing = this.latestData.results.filter(function(yumlistings) { // runs it 24 times until it finds the ID.
-        return listings.listings_id === parseInt(id);  //returns the data object not just listing.
-    });*/
 
     var grid = document.querySelector("#yumlistings");
 
@@ -114,54 +103,38 @@ YummlyStore.prototype.drawSingleListing = function(template, data) {
 YummlyStore.prototype.setupRouting = function() {
     var self = this;
 
-    Path.map("#/").to(function() { 
-		$.when(
-			self.loadTemplate("yumlisting"),
-            self.pullAllActiveListings()
-        ).then(function() {
-            self.drawListings(arguments[0], arguments[1]);
+    Path.map("#/").to(function() { 
+        $.when(
+            self.loadTemplate("yumlisting"),
+            self.pullAllActiveListings()
+        ).then(function() {
+            self.drawListings(arguments[0], arguments[1]);
 
-            console.dir(self)
-        })
-    });  // grab the loading listing html and data. Inside this call back function we are not in YummlyStore. To access we use instance which is why we use self.
-       // self.drawListings(self.yumlistingHtml, self.latestData);
+            console.dir(self)
+        })
+    });  // grab the loading listing html and data. Inside this call back function we are not in YummlyStore. To access we use instance which is why we use self.
+       // self.drawListings(self.yumlistingHtml, self.latestData);
   //  });
 
     Path.map("#/message/:anymessage").to(function() {
         alert(this.params.anymessage);
     })
 
-   // Path.map("#/listing/:id").to(function() {  //
+   // Path.map("#/listing/:id").to(function() {  //
   //      self.drawSingleListing(this.params.id);
   //  });
 Path.map("#/recipe/:id").to(function() {
-        $.when(
-            self.loadTemplate("yum-single-page-listing"),
-            self.pullSingleListing(this.params.id)
-        ).then(function() {
-            self.drawSingleListing(arguments[0], arguments[1]);
-        })
-    });
+        $.when(
+            self.loadTemplate("yum-single-page-listing"),
+            self.pullSingleListing(this.params.id)
+        ).then(function() {
+            self.drawSingleListing(arguments[0], arguments[1]);
+        })
+    });
     // set the default hash
     Path.root("#/");  //if there is no hash on url, it will set the default route to be #/
-/*}
-
- YummlyStore.prototype.init = function() {
-    var self = this;   //stores a reference to the instance
-
-
-   $.when(                         //(the "listing" or "single-page-listing" we are involinkg the data)
-        this.pullAllActiveListings(), //this returns a promise.  getting results and storing property on the instance.  (into self. )
-        this.loadTemplate("yumlisting"),
-        this.loadTemplate("yum-single-page-listing")
-    ).then(function(data, html, yumsinglePageHtml) {  //whatever is passed in here is in order from the top.
-
-        //Create three properties on our Etsy instance
-        self.latestData = data;
-        self.yumlistingHtml = html;
-        self.yumsingleListingHtml = yumsinglePageHtml; */
 
 
         Path.listen();
-   // })
+   // })
 }

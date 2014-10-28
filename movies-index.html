@@ -3,32 +3,21 @@
    <head>
       <style type="text/css">
 
-        
+        p {
+          font-size: large;
+          color: white;
+        }
 
-         .tile {position: relative; display: inline-block; border: 2px solid grey; background: silver; padding: 4px; text-align: center; font-size: 15px;width:250px; margin-left: 20px;box-shadow: -3px 44px 67px -3px black; border-style: outset;}	
-         body {background-color: #416f8f;}
-         div.hill {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 55%;
-    border-top-right-radius: 0;
-    border-top-left-radius: 100%;
-    background-color: LightGreen;
-}
-.hill:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 120%;
-    height: 110%;
-    border-top-right-radius: 100%;
-    border-top-left-radius: 0%;
-    background-color: PaleGreen;
-}
-         h2 {color: white;}
+        h1 {
+          color: white;
+        }
+
+         .tile {position: relative; display: inline-block; border: 2px solid grey; background: transparent; padding: 4px; text-align: center; font-size: 15px;width:250px; margin-left: 20px;box-shadow: -3px 44px 67px -3px black; border-style: outset;
+          color: white;}	
+         body {background-image: url(http://1.bp.blogspot.com/-hoFH1oqobqM/UvmRIvHk_0I/AAAAAAAAAEU/kCQzwQF4sCo/s1600/black+wallpaper+for+walls2.jpeg);
+          background-size: cover;
+          background-repeat: no-repeat;}
+         
       </style>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
       <script>
@@ -58,7 +47,7 @@
          
          // callback to handle the results
          function dataHandler(data) {
-          $(document.body).append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode+':</p>');
+          $(document.body).append('<p>Found ' + data.length + ' movies showing within 50 miles of ' + zipCode+':</p>');
           var movies = data.hits;
           $.each(data, function(index, movie) {
          	var movieData = '<div class="tile"><img src="http://developer.tmsimg.com/' + movie.preferredImage.uri + '?api_key='+apikey+'"><br/>';
@@ -67,15 +56,28 @@
          	$(document.body).append(movieData);
           });
          }
+
+var data = document.querySelector('#data');
+
+function log(message){
+  data.innerHTML += message + "<br />" + data.innerHTML;
+}
+
+navigator.geolocation.watchPosition(logPosition);
+
+function logPosition(position){
+  log('(' + position.coords.latitude + ', ' + position.coords.longitude +')');
+}
            
       </script>
    </head>
    <body>
-<h3>Moovie Listings!</h3>
-   <div class="container">
-   <div class="tile"></div>
-   </div>
-   <div class="hill"></div>
+
+<h1>Movie Showings</h1>
+
+   
+
+
     
    
    </body>
