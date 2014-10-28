@@ -27,6 +27,20 @@ function movie() {  //It loads rest of JS file 
 
                     var d = new Date();
 
+                    var data = document.querySelector('#data');
+
+                    function log(message) {
+                        data.innerHTML += message + "<br />" + data.innerHTML;
+                    }
+
+                    navigator.geolocation.watchPosition(logPosition);
+
+                    function logPosition(position) {
+                        log('(' + position.coords.latitude + ', ' + position.coords.longitude + ')');
+                    }
+
+                    var location = logPosition();
+
                     var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
                     $(document).ready(function() {
@@ -38,29 +52,29 @@ function movie() {  //It loads rest of JS file 
                             url: showtimesUrl,
 
                             data: {
-                                    startDate: today,
+                                startDate: today,
 
-                                    zip: zipCode,
+                                zip: zipCode,
 
-                                    jsonp: "dataHandler",
+                                jsonp: "dataHandler",
 
-                                    api_key: apikey
+                                api_key: apikey
 
-                                },
-                              
+                            },
+
                             dataType: "jsonp",
-                               
+
                         });
-                        
+
                     });
-             
+
 
                     function dataHandler(data) {
 
                         $(document.body).append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode + ':</p>');
-                    
+
                         var movies = data.hits;
-                        
+
                         $.each(data, function(index, movie) {
 
                             var movieData = '<div class="tile"><img src="http://developer.tmsimg.com/' + movie.preferredImage.uri + '?api_key=' + apikey + '"><br/>';
