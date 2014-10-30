@@ -15,32 +15,33 @@ mocha.setup({
 var assert = chai.assert;
 var expect = chai.expect;
 
+
 //--- your setup code goes here (i.e. create test instances of your Constructors)
 //--- your setup code goes here
+describe("Array", function(){
+    describe("#indexOf()", function(){
+        it("should return -1 when the value is not present", function(){
+            expect([1,2,3].indexOf(5)).to.equal(-1);
+            expect([1,2,3].indexOf(0)).to.equal(-1);
+        })
+    })
+})
+  var sets = {
+                api_key: "9bf81599ca8a0f15d0f4674ef24342c4",
+                app_id: "ba255115"
+            }
+            // start app?
+  var client = new YummlyStore(sets);  
 
 'use strict';
 
-var yummlyListings;// originally recipe
+var yummlyStore;// originally recipe
 
-describe('yummlyListings', function () {
+describe('sets', function () {
 
-  it('should be fast', function (done) {
-    yummly.recipe({
-      credentials: credentials,
-      id: 'Meyer-Lemon-Semifreddo-With-Summer-Berries-Epicurious'
-    }, function (error, response, json) {
-      if (error) {
-        console.error(error);
-      } else {
-        recipe = json;
-        done();
-      }
-    });
-  });
-
-  it('should have an id', function () {
-    expect(recipe.id).to.be.ok();
-    console.log(recipe.id);
+  it('should have an API and ID KEY', function () {
+    expect(sets.api_key).to.be.a("string");
+    console.log(sets.api_key);
   });
 
   it('should have a name', function () {
@@ -76,14 +77,7 @@ describe('yummlyListings', function () {
 
 });
 // an example test suite
-describe("Array", function(){
-    describe("#indexOf()", function(){
-        it("should return -1 when the value is not present", function(){
-            expect([1,2,3].indexOf(5)).to.equal(-1);
-            expect([1,2,3].indexOf(0)).to.equal(-1);
-        })
-    })
-})
+
 //--- MOVIE TESTS
 
 'use strict';
