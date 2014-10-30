@@ -18,125 +18,106 @@ var expect = chai.expect;
 
 //--- your setup code goes here (i.e. create test instances of your Constructors)
 //--- your setup code goes here
-describe("Array", function(){
-    describe("#indexOf()", function(){
-        it("should return -1 when the value is not present", function(){
-            expect([1,2,3].indexOf(5)).to.equal(-1);
-            expect([1,2,3].indexOf(0)).to.equal(-1);
-        })
-    })
-})
+// describe("Array", function(){
+//     describe("#indexOf()", function(){
+//         it("should return -1 when the value is not present", function(){
+//             expect([1,2,3].indexOf(5)).to.equal(-1);
+//             expect([1,2,3].indexOf(0)).to.equal(-1);
+//         })
+//     })
+// })
   var sets = {
                 api_key: "9bf81599ca8a0f15d0f4674ef24342c4",
                 app_id: "ba255115"
             }
+
+var client = new YummlyStore(sets) 
+
+function YummlyStore(sets) { //constructor function that tests if e give it a API key
+    //if (!sets.api_key + sets.app_id) {
+    if (!sets.api_key) {
+        throw new Error("NO APIKEY!?!?");
+    }
+    this.yummly_url = "http://api.yummly.com/";
+    this.version = sets.api_version || "v1/"; // handle api version... if not given, just use the default "v1"
+    this.api_key = sets.api_key;
+    this.app_id = sets.app_id;
+    this.complete_api_url = this.yummly_url + this.version;
+}
+
+YummlyStore.prototype.pullAllActiveListings = function() {
+    return $.getJSON(
+            this.complete_api_url + "api/recipes?_app_id=" + this.app_id + "&_app_key=" + this.api_key + "&requirePictures=true"
+        )
+        .then(function(data) {
+            console.log(data.matches)
+            //console.log(data.images[0].hostedLargeUrl);
+            return data.matches;
+        });
+}
+
+YummlyStore.prototype.loadTemplate = function(name) {
+    if (!this.templates) {
+        this.templates = {};
+    }
+
+    var self = this;
+
+    if (this.templates[name]) {
+        var promise = $.Deferred();
+        promise.resolve(this.templates[name]);
+        return promise;
+    } else {
+        return $.get('./templates/' + name + '.html').then(function(data) {
+            self.templates[name] = data; // <-- cache it for any subsequent requests to this template
+            return data;
+        });
+    }
+}
+
+    // derp.
+  //  this.setupRouting();       //constructor function that tests if e give it a API key
+
+
             // start app?
-  var client = new YummlyStore(sets);  
 
-'use strict';
 
-var yummlyStore;// originally recipe
 
-describe('sets', function () {
+//an example test suite
+// describe("Array", function(){
+//     describe("#indexOf()", function(){
+//         it("should return -1 when the value is not present", function(){
+//             expect([1,2,3].indexOf(5)).to.equal(-1);
+//             expect([1,2,3].indexOf(0)).to.equal(-1);
+//         })
+//     })
+// })
+//--- Yummly Testing
 
-  it('should have an API and ID KEY', function () {
-    expect(sets.api_key).to.be.a("string");
-    console.log(sets.api_key);
-  });
 
-  it('should have a name', function () {
-    expect(recipe.name).to.be.ok();
-    console.log(recipe.name);
-  });
+describe("YUMMLY", function(){
+  it("should return Api-Key", function(){
+expect(sets.api_key).to.equal('9bf81599ca8a0f15d0f4674ef24342c4');
+})
+})
 
-  it('should have an ingredient', function () {
-    expect(recipe.ingredientLines).to.be.an(Array);
-    expect(recipe.ingredientLines[0]).to.be.ok();
-    console.log(recipe.ingredientLines[0]);
-  });
+describe("URL", function(){
+  it("should return a string", function(){
+    expect(client.yummly_url).to.be.a('string');
+  })
+})
 
-  it('should have calories', function () {
-    expect(recipe.nutritionEstimates).to.be.an(Array);
-    expect(recipe.nutritionEstimates[0].attribute).to.equal('ENERC_KCAL');
-    console.log(recipe.nutritionEstimates[0].unit.plural + ':', recipe.nutritionEstimates[0].value);
-  });
+describe("Testing Data", function(){
+  it("we should have a returned object", function(){
+    expect(YummlyStore.prototype.pullAllActiveListings()).to.be.a("object");
+  })
+}) 
 
-  it('should have images', function () {
-    expect(recipe.images).to.be.an(Array);
-  });
-
-  it('should have a small image', function () {
-    expect(recipe.images[0].hostedSmallUrl).to.be.ok();
-    console.log(recipe.images[0].hostedSmallUrl);
-  });
-
-  it('should have a large image', function () {
-    expect(recipe.images[0].hostedLargeUrl).to.be.ok();
-    console.log(recipe.images[0].hostedLargeUrl);
-  });
-
-});
-// an example test suite
-
-//--- MOVIE TESTS
-
-'use strict';
-
-var movies;
-
-describe('movies', function () {
-
-  it('should be fast', function (done) {
-    yummly.recipe({
-      credentials: credentials,
-      id: 'Meyer-Lemon-Semifreddo-With-Summer-Berries-Epicurious'
-    }, function (error, response, json) {
-      if (error) {
-        console.error(error);
-      } else {
-        recipe = json;
-        done();
-      }
-    });
-  });
-
-  it('should have an id', function () {
-    expect(recipe.id).to.be.ok();
-    console.log(recipe.id);
-  });
-
-  it('should have a name', function () {
-    expect(recipe.name).to.be.ok();
-    console.log(recipe.name);
-  });
-
-  it('should have an ingredient', function () {
-    expect(recipe.ingredientLines).to.be.an(Array);
-    expect(recipe.ingredientLines[0]).to.be.ok();
-    console.log(recipe.ingredientLines[0]);
-  });
-
-  it('should have calories', function () {
-    expect(recipe.nutritionEstimates).to.be.an(Array);
-    expect(recipe.nutritionEstimates[0].attribute).to.equal('ENERC_KCAL');
-    console.log(recipe.nutritionEstimates[0].unit.plural + ':', recipe.nutritionEstimates[0].value);
-  });
-
-  it('should have images', function () {
-    expect(recipe.images).to.be.an(Array);
-  });
-
-  it('should have a small image', function () {
-    expect(recipe.images[0].hostedSmallUrl).to.be.ok();
-    console.log(recipe.images[0].hostedSmallUrl);
-  });
-
-  it('should have a large image', function () {
-    expect(recipe.images[0].hostedLargeUrl).to.be.ok();
-    console.log(recipe.images[0].hostedLargeUrl);
-  });
-
-});
+ describe("Testing Templates", function(){
+  it("we should be returning template data", function(){
+    expect(YummlyStore.prototype.loadTemplate(name)).to.be.a("object");
+  })
+ }) 
 
 mocha.globals(["jQuery"]);
 mocha.run();

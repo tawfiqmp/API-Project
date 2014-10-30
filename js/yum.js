@@ -81,7 +81,11 @@ YummlyStore.prototype.loadTemplate = function(name) {
 }
 
 YummlyStore.prototype.drawListings = function(templateString, data) {
+
     var grid = document.querySelector("#yumlistings");
+if (!"#yumlistings") {
+        throw new Error("NO ID SELECTED!?!?");
+    }
 
     var bigHtmlString = data.map(function(listing) {
         return _.template(templateString, listing);
@@ -92,7 +96,9 @@ YummlyStore.prototype.drawListings = function(templateString, data) {
 
 YummlyStore.prototype.drawSingleListing = function(template, data) {
     var listing = data;
-
+if (!listing) {
+        throw new Error("data not being pulled");
+    }
     var grid = document.querySelector("#yumlistings");
 
     var bigHtmlString = _.template(template, listing);
@@ -101,6 +107,7 @@ YummlyStore.prototype.drawSingleListing = function(template, data) {
 }
 
 YummlyStore.prototype.setupRouting = function() {
+
     var self = this;
 
     Path.map("#/").to(function() { 
@@ -138,3 +145,4 @@ Path.map("#/recipe/:id").to(function() {
         Path.listen();
    // })
 }
+

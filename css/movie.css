@@ -24,3 +24,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+h4 {
+    color: white;
+    font-size: medium;
+}
