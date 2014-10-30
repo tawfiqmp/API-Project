@@ -1,29 +1,26 @@
-*, *:before, *:after {
-	box-sizing: border-box;
-}
-
-.grid {
-	display: block;
-	font-size: 0;
-	text-align: justify;
-	margin: 0 auto;
-}
-.grid:after {
-	content: "";
-	display: inline-block;
-	width: 100%;
-}
-.grid > * {
-	display: inline-block;
-	width: 100%;
-	font-size: medium;
-	vertical-align: top;
-	text-align: left;
-}
-
-@media (min-width: 800px){
-	.grid-3-800 > * { width: 30%; }
-}
-
-img {
-	max-width: 100%;
+  p {
+      font-size: large;
+      color: white;
+  }
+  h1 {
+      color: white;
+  }
+  .tile {
+      position: relative;
+      display: inline-block;
+      border: 2px solid grey;
+      background: transparent;
+      padding: 4px;
+      text-align: center;
+      font-size: 15px;
+      width: 250px;
+      margin-left: 20px;
+      box-shadow: -3px 44px 67px -3px black;
+      border-style: outset;
+      color: white;
+  }
+  body {
+      background-image: url(http://1.bp.blogspot.com/-hoFH1oqobqM/UvmRIvHk_0I/AAAAAAAAAEU/kCQzwQF4sCo/s1600/black+wallpaper+for+walls2.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
+  }

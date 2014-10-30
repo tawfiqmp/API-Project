@@ -13,10 +13,6 @@ var expect = chai.expect;
 //--- your setup code goes here
 
 
-var test;
-
-
-
 
 //--- your tests go here
 // an example test suite
