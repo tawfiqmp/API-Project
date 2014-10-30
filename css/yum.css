@@ -21,6 +21,7 @@ body {
     background-color: LightGreen;
 }
 
+
 p {
 	font-family: 'Arial Black', sans-serif;
 	margin-left: 500px;
@@ -31,19 +32,6 @@ font-size: 82px;
 text-shadow:0px 0px 0 rgb(95,92,92),-1px 1px 0 rgb(55,52,52),-2px 2px 0 rgb(16,13,13),-3px 3px 0 rgb(-23,-26,-26),-4px 4px 0 rgb(-63,-66,-66),-5px 5px 0 rgb(-102,-105,-105), -6px 6px 0 rgb(-141,-144,-144),-7px 7px 6px rgba(0,0,0,1),-7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
 }
 
-
-
-.hill:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 120%;
-    height: 110%;
-    border-top-right-radius: 100%;
-    border-top-left-radius: 0%;
-    background-color: PaleGreen;
-}
 .grid {
 	display: block;
 	font-size: 0;
@@ -71,6 +59,13 @@ text-shadow:0px 0px 0 rgb(95,92,92),-1px 1px 0 rgb(55,52,52),-2px 2px 0 rgb(16,1
 	border-style: outset;
 box-shadow: -3px 44px 67px -3px black;
 }
+
+.yumRight {
+	float: right;
+	width: 100%;
+	background-color: red;
+}
+
 
 
 @media (min-width: 800px){
