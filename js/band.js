@@ -23,15 +23,14 @@ function app() {
 
 }
 
+// http://api.bandsintown.com/venues/1700/events.json?app_id=YOUR_APP_ID
 function BandClient(options) {
     if (!options.app_id) {
         throw new Error("Y U NO APIKEY!?!?");
     }
-    this.band_url = "http://api.bandsintown.com";  
-
-    //this.version = options.api_version || "v2/"; // handle api version... if not given, just use the default "v2"
+    this.band_url = "/bands/venues/774287/events.json?";
     this.app_id = options.app_id;
-    this.complete_api_url = this.band_url //+ this.version;
+    this.complete_api_url = this.band_url + "app_id=" + this.app_id;
 
     // derp.
     this.setupRouting();
@@ -39,7 +38,7 @@ function BandClient(options) {
 
 BandClient.prototype.pullAllActiveListings = function() {
     return $.getJSON(
-        this.complete_api_url + "/venues/774287/events?api_version=1.0&format=jsonp&app_id=Moose" + "&callback=test"
+        this.complete_api_url
     )
         .then(function(data) {
             console.log(data);
@@ -47,11 +46,11 @@ BandClient.prototype.pullAllActiveListings = function() {
         });
 }
 
-BandClient.prototype.pullSingleListing = function(id) {
-    return $.getJSON(this.complete_api_url + "listings/"+id+".js?app_id=" + this.app_id + "&includes=Images&callback=?").then(function(data) {
-        return data;
-    });
-}
+//BandClient.prototype.pullSingleListing = function(id) {
+   // return $.getJSON(this.complete_api_url + "listings/"+id+".js?app_id=" + this.app_id + "&includes=Images&callback=?").then(function(data) {
+    //    return data;
+  //  });
+//}
 
 BandClient.prototype.loadTemplate = function(name) {
     if (!this.templates) {
@@ -73,7 +72,7 @@ BandClient.prototype.loadTemplate = function(name) {
 }
 
 BandClient.prototype.drawListings = function(templateString, data) {
-    var grid = document.querySelector("#listings");
+    var grid = document.querySelector("#bandListings");
 
     var bigHtmlString = data.results.map(function(listing) {
         return _.template(templateString, listing);
@@ -84,7 +83,7 @@ BandClient.prototype.drawListings = function(templateString, data) {
 
 BandClient.prototype.drawSingleListing = function(template, data) {
     var listing = data.results[0];
-    var grid = document.querySelector("#listings");
+    var grid = document.querySelector("#bandListings");
     var bigHtmlString = _.template(template, listing);
 
     grid.innerHTML = bigHtmlString;
@@ -95,7 +94,7 @@ BandClient.prototype.setupRouting = function() {
 
     Path.map("#/").to(function() {
         $.when(
-            self.loadTemplate("listing"),
+            self.loadTemplate("bandlisting"),
             self.pullAllActiveListings()
         ).then(function() {
             self.drawListings(arguments[0], arguments[1]);
@@ -110,7 +109,7 @@ BandClient.prototype.setupRouting = function() {
 
     Path.map("#/listing/:id").to(function() {
         $.when(
-            self.loadTemplate("single-page-listing"),
+            self.loadTemplate("band-single-listing"),
             self.pullSingleListing(this.params.id)
         ).then(function() {
             self.drawSingleListing(arguments[0], arguments[1]);

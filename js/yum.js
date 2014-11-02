@@ -139,6 +139,8 @@ YummlyStore.prototype.setupRouting = function() {
             self.pullSingleListing(this.params.id)
         ).then(function() {
             self.drawSingleListing(arguments[0], arguments[1]);
+            var array = document.getElementById("ingredientLines").innerHTML.split(",").join("<br>");
+            document.getElementById("ingredientLines").innerHTML = array;
         })
     });
     // set the default hash

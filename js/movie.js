@@ -36,6 +36,9 @@ function MovieShowtimes(sets) { //constructor function that tests if e give it a
     this.version = sets.api_version || "v1/"; // handle api version... if not given, just use the default "v1"
     this.api_key = sets.api_key;
     this.complete_api_url = this.showtimes_url + this.version;
+    var d = new Date();
+    var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); 
+    this.today = today;
 
     // derp.
     this.setupRouting(); //constructor function that tests if e give it a API key
