@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="./bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./bower_components/typeplate-starter-kit/css/typeplate.css">
@@ -8,107 +9,111 @@
 
     <title></title>
 </head>
+
 <body>
-  
-<!-- CLOUDS, BACKGROUND AND SUN SET-UP-->
-<div id="clouds">
+    <!-- CLOUDS, BACKGROUND AND SUN SET-UP-->
+    <div id="clouds">
 
-	<div id="background">
-	<div id="sun">
-   <div id="rays"></div> 
-  </div>
-	<div id="moon"></div>
-	<div class="cloud x1"></div>
+        <div id="background">
+            <div id="sun">
+                <div id="rays"></div>
+            </div>
+            <div id="moon"></div>
+            <div class="cloud x1"></div>
 
-	<!-- For multiple cloudS-->
+            <!-- For multiple cloudS-->
 
-	<div class="cloud x2"></div>
-	<div class="cloud x3"></div>
-	<div class="cloud x4"></div>
-	<div class="cloud x5"></div>
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
 
-	<div class="hill" ><span id="title"><h1>Ask Mooose!</h1> 
-  <Click on Moose!</h1></span></div>
-
-
- <script type="text/javascript">
-function randomlinks(){
-
-var myrandom=Math.round(Math.random()*2)
-
-var links=new Array()
-links[0]="yum-index.html"
-links[1]="movies-index2.html"
-links[2]="band-index.html"
+            <div class="hill">
+                <span id="title">
+                    <h1>Ask Mooose!</h1>
+                    <Click on Moose!</h1>
+                </span>
+            </div>
 
 
-window.location=links[myrandom]
-}
-</script>
+            <script type="text/javascript">
+            function randomlinks() {
+
+                var myrandom = Math.round(Math.random() * 2)
+
+                var links = new Array()
+                links[0] = "yum-index.html"
+                links[1] = "movies-index2.html"
+                links[2] = "band-index.html"
 
 
-      <!-- MOOSE SET-UP-->
+                window.location = links[myrandom]
+            }
+            </script>
 
-<div class='moose'>
+            <!-- MOOSE SET-UP-->
 
-  <div class='body'>
-  <div class='body2'></div>
+            <div class='moose'>
 
-    <div class='arm'></div>
-    <div class='arm'></div>
-    <div class='feet'></div>
-    <div class='feet right'></div>
-  </div>
-  <div class='head'>
+                <div class='body'>
+                    <div class='body2'></div>
 
-    <div class='eyes'>
+                    <div class='arm'></div>
+                    <div class='arm'></div>
+                    <div class='feet'></div>
+                    <div class='feet right'></div>
+                </div>
+                <div class='head'>
 
-      <div class='nose'>
-      <div class='nose2'></div>
-      <div class='nose2'></div>
-      </div>
+                    <div class='eyes'>
 
-      <div class='eye'>
-        <div class='pupil'></div>
-      </div>
-      <form>
+                        <div class='nose'>
+                            <div class='nose2'></div>
+                            <div class='nose2'></div>
+                        </div>
 
-      <div class='eye'>
-         <div class="antlers-left">
-  	<div class="top-antler-left"></div>
-  	<div class="top-antler-left"></div>
-  	<div class="bottom-antler-left"></div>
+                        <div class='eye'>
+                            <div class='pupil'></div>
+                        </div>
+                        <form>
 
-  </div>
+                            <div class='eye'>
+                                <div class="antlers-left">
+                                    <div class="top-antler-left"></div>
+                                    <div class="top-antler-left"></div>
+                                    <div class="bottom-antler-left"></div>
 
-  <div class="antlers-right">
-  	<div class="top-antler-right"></div>
-  	<div class="top-antler-right"></div>
-  	<div class="bottom-antler-right"></div>
-  </div>
-  <div class="ear-right"></div>
-  <div class="ear-left"></div>
+                                </div>
 
-  <input type="button" style="width:238px;height:215px; opacity:0; margin-top: -92px;
+                                <div class="antlers-right">
+                                    <div class="top-antler-right"></div>
+                                    <div class="top-antler-right"></div>
+                                    <div class="bottom-antler-right"></div>
+                                </div>
+                                <div class="ear-right"></div>
+                                <div class="ear-left"></div>
+
+                                <input type="button" style="width:238px;height:215px; opacity:0; margin-top: -92px;
 margin-left: -30px;" value="What to do today?" onClick="randomlinks()">
 
-</form>
-        <div class='pupil'></div>
+                        </form>
+                        <div class='pupil'></div>
 
-      </div>
-    </div>
-  </div>
-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</div>
-
-
+        </div>
 
 
 
-    <script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/app.js"></script>
-    
-    <!--<script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/yum.js"></script>
+
+
+        <script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/app.js"></script>
+
+        <!--<script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/yum.js"></script>
     <script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/movie.js"></script>-->
 </body>
+
 </html>

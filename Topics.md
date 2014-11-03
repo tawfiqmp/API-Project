@@ -49,3 +49,14 @@ THINGS TO DO  10/28/14
 3. Complete Tests
 4. Add "use strict"
 5. Add more styling
+
+OnConnect API: q7d6xxwe8h85b6z7gu3xsdjf
+
+
+
+RECIPES keys to include:
+
+Name
+Ingredients
+Nutrition
+Directions(time)
