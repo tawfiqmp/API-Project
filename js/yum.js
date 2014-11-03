@@ -46,13 +46,13 @@ YummlyStore.prototype.pullSeasons = function() {
     window.set_metadata = function() {
         console.log(arguments);
     }
-    $.get(this.complete_api_url + "api/metadata/holiday.js?_app_id=" + this.app_id +"&_app_key="+ this.api_key + "&callback=set_metadata")
+    $.get(this.complete_api_url + "api/metadata/holiday.js?_app_id=" + this.app_id + "&_app_key=" + this.api_key + "&callback=set_metadata")
         .then(function(x) {});
 }
 
-var randomSeason = function (obj) {
+var randomSeason = function(obj) {
     var keys = x.matches.searchValue(obj)
-    return obj[keys[ keys.length * Math.random() << 0]];
+    return obj[keys[keys.length * Math.random() << 0]];
     console.log(randomSeason);
 }
 
@@ -73,27 +73,35 @@ YummlyStore.prototype.pullSingleListing = function(id) {
     });
 }
 
-YummlyStore.prototype.loadTemplate = function(name) {
-    if (!this.templates) {
-        this.templates = {};
+YummlyStore.prototype.loadTemplate = function(name) {  
+    if (!this.templates) {    
+        this.templates = {};  
     }
 
+      
     var self = this;
 
-    if (this.templates[name]) {
-        var promise = $.Deferred();
-        promise.resolve(this.templates[name]);
-        return promise;
-    } else {
-        return $.get('./templates/' + name + '.html').then(function(data) {
+      
+    if (this.templates[name]) {    
+        var promise = $.Deferred();    
+        promise.resolve(this.templates[name]);    
+        return promise;  
+    } else {    
+        return $.get('./templates/' + name + '.html').then(function(data) {      
             self.templates[name] = data; // <-- cache it for any subsequent requests to this template
-            return data;
-        });
+                  
+            return data;    
+        });  
     }
 }
 
 YummlyStore.prototype.drawListings = function(templateString, data) {
+
+      
     var grid = document.querySelector("#yumlistings");
+    if (!"#yumlistings") {    
+        throw new Error("NO ID SELECTED!?!?");  
+    }
 
     var bigHtmlString = data.map(function(listing) {
         return _.template(templateString, listing);
@@ -102,9 +110,11 @@ YummlyStore.prototype.drawListings = function(templateString, data) {
     grid.innerHTML = bigHtmlString;
 }
 
-YummlyStore.prototype.drawSingleListing = function(template, data) {
+YummlyStore.prototype.drawSingleListing = function(template, data) {  
     var listing = data;
-
+    if (!listing) {    
+        throw new Error("data not being pulled");  
+    }  
     var grid = document.querySelector("#yumlistings");
 
     var bigHtmlString = _.template(template, listing);

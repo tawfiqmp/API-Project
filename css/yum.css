@@ -1,8 +1,15 @@
+
+@import url(http://fonts.googleapis.com/css?family=Cinzel);
 *, *:before, *:after {
 	box-sizing: border-box;
 }
 
-body {background-color: #416f8f;}
+body {
+	background-color: #416f8f;
+	background-image: url(http://4.bp.blogspot.com/-R1prG0Wlhh8/UDK6oTpTRtI/AAAAAAAABNw/hVDFEjH78r4/s1600/Massimo+Restaurant+%2526+Oyster+Bar.jpg);
+	background-position: center;
+	background-size: cover;
+}
          div.hill {
     position: absolute;
     bottom: 0;
@@ -13,17 +20,18 @@ body {background-color: #416f8f;}
     border-top-left-radius: 100%;
     background-color: LightGreen;
 }
-.hill:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 120%;
-    height: 110%;
-    border-top-right-radius: 100%;
-    border-top-left-radius: 0%;
-    background-color: PaleGreen;
+
+
+p {
+	font-family: 'Arial Black', sans-serif;
+	margin-left: 500px;
+line-height: 1em;
+color: #f0eded;
+font-weight:bold;
+font-size: 82px;
+text-shadow:0px 0px 0 rgb(95,92,92),-1px 1px 0 rgb(55,52,52),-2px 2px 0 rgb(16,13,13),-3px 3px 0 rgb(-23,-26,-26),-4px 4px 0 rgb(-63,-66,-66),-5px 5px 0 rgb(-102,-105,-105), -6px 6px 0 rgb(-141,-144,-144),-7px 7px 6px rgba(0,0,0,1),-7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);}
 }
+
 .grid {
 	display: block;
 	font-size: 0;
@@ -41,17 +49,31 @@ body {background-color: #416f8f;}
 	font-size: medium;
 	vertical-align: top;
 	text-align: left;
-	background-color: grey;
+	background-color: darkkhaki;
 	text-decoration: none;
 	border: 2px solid black;
 	padding: 2em;
 	text-align: center;
 	margin-left: 30px;
+	margin-bottom: 20px;
+	border-style: outset;
+box-shadow: -3px 44px 67px -3px black;
 }
+
+.yumRight {
+	float: right;
+	width: 100%;
+	background-color: red;
+}
+
 
 
 @media (min-width: 800px){
 	.grid-3-800 > * { width: 30%; }
+}
+
+ul {
+	text-align: left;
 }
 
 img {

@@ -1,7 +1,6 @@
 window.onload = app; // does not matter if this is on top or bottom.
 
 // runs when the DOM is loaded
-
 function app() { //It loads rest of JS file  
 
     // load some scripts (uses promises :D)
@@ -37,7 +36,7 @@ function MovieShowtimes(sets) { //constructor function that tests if e give it a
     this.api_key = sets.api_key;
     this.complete_api_url = this.showtimes_url + this.version;
     var d = new Date();
-    var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); 
+    var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
     this.today = today;
 
     // derp.
@@ -52,19 +51,19 @@ MovieShowtimes.prototype.pullAllActiveListings = function() {
     var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
     function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        innerHTML = "Geolocation is not supported by this browser.";
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            innerHTML = "Geolocation is not supported by this browser.";
         }
     }
 
     function showPosition(position) {
-    Latitude =  position.coords.latitude; 
-    Longitude = position.coords.longitude;  
+        Latitude = position.coords.latitude;
+        Longitude = position.coords.longitude;
     }
 
-    window.onload  = getLocation();
+    window.onload = getLocation();
     return $.getJSON(
             this.complete_api_url + "movies/showings?startDate=" + today + "&zip=78701&api_key=" + this.api_key
         )
