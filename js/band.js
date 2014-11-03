@@ -40,7 +40,7 @@ BandClient.prototype.pullAllActiveListings = function() {
             this.complete_api_url + "&location=29.7628,-95.3831&within=25"
         )
         .then(function(data) {
-            console.log(data);
+            console.log(data.events.event);
             return data;
         });
 }
@@ -77,7 +77,7 @@ BandClient.prototype.drawListings = function(templateString, data) {
     var grid = document.querySelector("#bandListings");
 
       
-    var bigHtmlString = data.results.map(function(listing) {    
+    var bigHtmlString = data.events.event.map(function(listing) {    
         return _.template(templateString, listing);  
     }).join('');
 
@@ -86,7 +86,7 @@ BandClient.prototype.drawListings = function(templateString, data) {
 }
 
 BandClient.prototype.drawSingleListing = function(template, data) {
-    var listing = data.results[0];
+    var listing = data.events.event[0];
     var grid = document.querySelector("#bandListings");
     var bigHtmlString = _.template(template, listing);
 
