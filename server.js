@@ -34,7 +34,7 @@ function startServer() {
     }
 
     // add your proxies here
-    proxify('/eventful/json', 'http://api.eventful.com/json/events/search');
+    proxify('/eventful/json/events/search', 'http://api.eventful.com/json/events/search');
 
     // all environments
     app.set('port', process.argv[3] || process.env.PORT || 3000);
