@@ -9,15 +9,28 @@ body {
     
     overflow: hidden;
 }
-
+<<<<<<< HEAD
+#input {
+    width: 300px;
+height: 300px;
+    margin-top: -135px;
+margin-left: -50px;
+=======
+form input {
+    line-height: 489px;
+    margin-left: 19px;
+    opacity: 0; 
+    margin-top: -230px;
+>>>>>>> master
+}
 /* This is the 3D lettering code for "Ask Moose!"*/
 span h1 {
     font-family: 'Fontdiner Swanky', cursive;
     font-weight: normal;
     margin-top: -400px;
-  font-size: 5em;
-  text-align: center;
-  text-shadow:
+    font-size: 5em;
+    text-align: center;
+    text-shadow:
     /* darker color                     lighter color   */
     1px 0px 1px rgba(160,160,170,.5),   0px 1px 1px rgba(230,230,240,.5), 
     2px 1px 1px rgba(159,159,169,.6),   1px 2px 1px rgba(229,229,239,.6),
@@ -32,8 +45,15 @@ span h1 {
     12px 12px 20px rgba(0,0,0,.20);
 
 }
-form {
-    margin-top: -30px;
+
+
+input#search {
+    width: 300px;
+height: 400px;
+margin-top: -73px;
+margin-left: -148px;
+opacity:0;
+
 }
 
 #button{

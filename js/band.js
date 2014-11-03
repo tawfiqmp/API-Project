@@ -15,12 +15,11 @@ function app() {
         _.templateSettings.interpolate = /{([\s\S]+?)}/g;
 
         var options = {
-            app_id: "MbHqvfBJhRRWGkFw"
-        }
-        // start app?
+                app_id: "MbHqvfBJhRRWGkFw"
+            }
+            // start app?
         var client = new BandClient(options);
     })
-
 }
 
 // http://api.eventful.com/json/events/search?app_key=MbHqvfBJhRRWGkFw&location=29.7628,-95.3831&within=25
@@ -38,8 +37,8 @@ function BandClient(options) {
 
 BandClient.prototype.pullAllActiveListings = function() {
     return $.getJSON(
-        this.complete_api_url + "&location=29.7628,-95.3831&within=25"
-    )
+            this.complete_api_url + "&location=29.7628,-95.3831&within=25"
+        )
         .then(function(data) {
             console.log(data);
             return data;
@@ -47,37 +46,42 @@ BandClient.prototype.pullAllActiveListings = function() {
 }
 
 //BandClient.prototype.pullSingleListing = function(id) {
-   // return $.getJSON(this.complete_api_url + "listings/"+id+".js?app_id=" + this.app_id + "&includes=Images&callback=?").then(function(data) {
-    //    return data;
-  //  });
+// return $.getJSON(this.complete_api_url + "listings/"+id+".js?app_id=" + this.app_id + "&includes=Images&callback=?").then(function(data) {
+//    return data;
+//  });
 //}
 
-BandClient.prototype.loadTemplate = function(name) {
-    if (!this.templates) {
-        this.templates = {};
+BandClient.prototype.loadTemplate = function(name) {  
+    if (!this.templates) {    
+        this.templates = {};  
     }
 
+      
     var self = this;
 
-    if (this.templates[name]) {
-        var promise = $.Deferred();
-        promise.resolve(this.templates[name]);
-        return promise;
-    } else {
-        return $.get('./templates/' + name + '.html').then(function(data) {
+      
+    if (this.templates[name]) {    
+        var promise = $.Deferred();    
+        promise.resolve(this.templates[name]);    
+        return promise;  
+    } else {    
+        return $.get('./templates/' + name + '.html').then(function(data) {      
             self.templates[name] = data; // <-- cache it for any subsequent requests to this template
-            return data;
-        });
+                  
+            return data;    
+        });  
     }
 }
 
 BandClient.prototype.drawListings = function(templateString, data) {
     var grid = document.querySelector("#bandListings");
 
-    var bigHtmlString = data.results.map(function(listing) {
-        return _.template(templateString, listing);
+      
+    var bigHtmlString = data.results.map(function(listing) {    
+        return _.template(templateString, listing);  
     }).join('');
 
+      
     grid.innerHTML = bigHtmlString;
 }
 
@@ -86,6 +90,7 @@ BandClient.prototype.drawSingleListing = function(template, data) {
     var grid = document.querySelector("#bandListings");
     var bigHtmlString = _.template(template, listing);
 
+      
     grid.innerHTML = bigHtmlString;
 }
 

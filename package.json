@@ -6,23 +6,27 @@
   "directories": {
     "test": "test"
   },
+  "dependencies": {
+    "express": "^4.10.1",
+    "gulp": "^3.8.9",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-jshint": "^1.8.5",
+    "lodash": "^2.4.1",
+    "method-override": "^2.3.0",
+    "request": "^2.47.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tawfiqmp/API-Project.git"
+    "url": "https://github.com/mb289/API-Project.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tawfiqmp/API-Project/issues"
+    "url": "https://github.com/mb289/API-Project/issues"
   },
-  "homepage": "https://github.com/tawfiqmp/API-Project",
-  "dependencies": {
-    "express": "^4.10.1",
-    "lodash": "^2.4.1",
-    "method-override": "^2.3.0",
-    "request": "^2.47.0"
-  }
+  "homepage": "https://github.com/mb289/API-Project",
 }

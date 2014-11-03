@@ -26,9 +26,6 @@ function startServer() {
                 querify(req.query)
             ].join("");
 
-            console.log(req.query);
-            console.log(url);
-
             req.pipe(request(url)).pipe(res);
         });
     }
