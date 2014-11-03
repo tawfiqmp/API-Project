@@ -15,7 +15,7 @@ function app() {
         _.templateSettings.interpolate = /{([\s\S]+?)}/g;
 
         var options = {
-            app_id: "Moose"
+            app_id: "MbHqvfBJhRRWGkFw"
         }
         // start app?
         var client = new BandClient(options);
@@ -23,22 +23,22 @@ function app() {
 
 }
 
-// http://api.bandsintown.com/venues/1700/events.json?app_id=YOUR_APP_ID
+// http://api.eventful.com/json/events/search?app_key=MbHqvfBJhRRWGkFw&location=29.7628,-95.3831&within=25
+// MbHqvfBJhRRWGkFw
 function BandClient(options) {
     if (!options.app_id) {
         throw new Error("Y U NO APIKEY!?!?");
     }
-    this.band_url = "/bands/venues/774287/events.json?";
+    this.band_url = "/eventful/json/events/search?";
     this.app_id = options.app_id;
-    this.complete_api_url = this.band_url + "app_id=" + this.app_id;
+    this.complete_api_url = this.band_url + "app_key=" + this.app_id;
 
-    // derp.
     this.setupRouting();
 }
 
 BandClient.prototype.pullAllActiveListings = function() {
     return $.getJSON(
-        this.complete_api_url
+        this.complete_api_url + "&location=29.7628,-95.3831&within=25"
     )
         .then(function(data) {
             console.log(data);
