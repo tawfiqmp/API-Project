@@ -26,16 +26,14 @@ function startServer() {
                 querify(req.query)
             ].join("");
 
+            console.log(req.query);
+            console.log(url);
+
             req.pipe(request(url)).pipe(res);
         });
     }
 
-    // add your proxies here.
-    //
-    // examples:
-    // proxify('/yummly/recipes', 'http://api.yummly.com/v1/api/recipes');
-    // proxify('/brewery/styles', 'https://api.brewerydb.com/v2/styles');
-    // proxify('/bands/venues', 'http://api.bandsintown.com/venues');
+    // add your proxies here
     proxify('/eventful/json', 'http://api.eventful.com/json');
 
     // all environments
